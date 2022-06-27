@@ -18,13 +18,13 @@ Widget drop(int num) {
           customItemsIndexes: const [3],
           items: [
             ...MenuItems_two.firstItems.map(
-                    (item) => DropdownMenuItem(
+              (item) => DropdownMenuItem(
                 value: item,
                 child: MenuItems_two.buildItem(item),
               ),
-              ),
-            ],
-            onChanged: (value) {
+            ),
+          ],
+          onChanged: (value) {
             MenuItems_two.onChanged(context, value as MenuItem_two, num);
             setState(() {});
           },
