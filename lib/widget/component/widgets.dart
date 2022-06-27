@@ -1,6 +1,5 @@
 import 'dart:io';
 
-import 'package:contacts_service/contacts_service.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_phone_direct_caller/flutter_phone_direct_caller.dart';
 
@@ -101,7 +100,7 @@ void dial({String? num}) {
 Widget viewcall({
   String? infotxt,
   String? maintxt,
-  final Color? clr,
+  required final Color clr,
   final TextDecoration? decoration,
   final Color? maintxtclr,
   GestureTapCallback? onTap,
@@ -111,7 +110,7 @@ Widget viewcall({
       margin: EdgeInsets.all(5),
       decoration: BoxDecoration(
           border: Border.all(
-            color: clr!,
+            color: clr,
           ),
           borderRadius: BorderRadius.circular(10)),
       child: Row(
@@ -168,4 +167,3 @@ Widget txtbtn({
     onPressed: clk,
   );
 }
-

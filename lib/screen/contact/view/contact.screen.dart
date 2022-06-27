@@ -1,6 +1,9 @@
-import 'package:contacts_service/contacts_service.dart';
+import 'dart:async';
+
 import 'package:contactthree/screen/CustomButtonTest/view/custombutton.dart';
 import 'package:contactthree/screen/home/view/home.screen.dart';
+import 'package:contactthree/screen/settings/view/setting.screen.dart';
+import 'package:contactthree/widget/component/style.dart';
 import 'package:contactthree/widget/component/widgets.dart';
 import 'package:flutter/material.dart';
 
@@ -24,11 +27,10 @@ class _ContactScreenState extends State<ContactScreen> {
     //   conta = contacts;
     // }
 
+    // CustomButtonTest c = CustomButtonTest(i);
 
-      // CustomButtonTest c = CustomButtonTest(i);
-
-      return SafeArea(
-        child: Scaffold(
+    return SafeArea(
+      child: Scaffold(
           appBar: AppBar(
             title: const Text("Edit Contact"),
             // leading: SizedBox(height: 20, width: 20, child: CustomButtonTest()),
@@ -37,9 +39,8 @@ class _ContactScreenState extends State<ContactScreen> {
                 padding: EdgeInsets.all(8.0),
                 child: InkWell(
                   onTap: () {
-                    setState(() {
 
-                    });
+
                   },
                   child: drop((i == null) ? 1 : i),
                 ),
@@ -66,11 +67,11 @@ class _ContactScreenState extends State<ContactScreen> {
                 S(h: 10),
                 Center(
                     child: Column(
-                      children: [
-                        txt2(str: "Name"),
-                        txt(str: usrdt.contactname[(i == null) ? 1 : i]),
-                      ],
-                    )),
+                  children: [
+                    txt2(str: "Name"),
+                    txt(str: usrdt.contactname[(i == null) ? 1 : i]),
+                  ],
+                )),
                 Align(
                   alignment: Alignment.center,
                   child: SingleChildScrollView(
@@ -81,7 +82,6 @@ class _ContactScreenState extends State<ContactScreen> {
                           mainAxisAlignment: MainAxisAlignment.start,
                           crossAxisAlignment: CrossAxisAlignment.stretch,
                           children: [
-
                             S(h: 20),
                             viewcall2(
                               substr: "Number",
@@ -90,7 +90,7 @@ class _ContactScreenState extends State<ContactScreen> {
                               mainTap: () {
                                 dial(
                                     num:
-                                    usrdt.contactnumber[(i == null) ? 1 : i]);
+                                        usrdt.contactnumber[(i == null) ? 1 : i]);
                               },
                               leading: Column(
                                 children: [
@@ -98,7 +98,7 @@ class _ContactScreenState extends State<ContactScreen> {
                                       onPressed: () {
                                         dial(
                                             num: usrdt.contactnumber[
-                                            (i == null) ? 1 : i]);
+                                                (i == null) ? 1 : i]);
                                       },
                                       icon: const Icon(Icons.call,
                                           color: Colors.green))
@@ -116,7 +116,7 @@ class _ContactScreenState extends State<ContactScreen> {
                                 substr: "Email",
                                 mainstr: usrdt.contactemail[(i == null) ? 1 : i],
                                 leading: IconButton(
-                                    onPressed: () { },
+                                    onPressed: () {},
                                     icon: const Icon(
                                         Icons.alternate_email_rounded,
                                         color: Colors.redAccent))),
@@ -130,7 +130,6 @@ class _ContactScreenState extends State<ContactScreen> {
             ),
           ),
         ),
-      );
-    }
+    );
   }
-
+}

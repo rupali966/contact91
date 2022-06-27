@@ -27,7 +27,5 @@ class data {
     this.contactadrees.insert(num, contactadrees);
     this.contactemail.insert(num, contactemail);
     this.contactimg.insert(num, contactimg);
-
-
   }
 }

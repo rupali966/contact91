@@ -1,13 +1,11 @@
 import 'package:contactthree/screen/CustomButtonTest/modal/MenuItm.dart';
 import 'package:contactthree/screen/contact/controller/cntr.contact.dart';
-import 'package:contactthree/screen/contact/view/contact.screen.dart';
 import 'package:contactthree/screen/home/controller/cntr.home.dart';
 import 'package:contactthree/screen/home/view/home.screen.dart';
 import 'package:contactthree/widget/component/widgets.dart';
 import 'package:contactthree/widget/constant/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:share_plus/share_plus.dart';
 
 class MenuItems_two {
   static const List<MenuItem_two> firstItems = [
@@ -49,7 +47,7 @@ class MenuItems_two {
         // Do something
         break;
       case MenuItems_two.settings:
-        //Do something
+        Navigator.pushNamed(context, 'setting');
         break;
       case MenuItems_two.share:
         sharecontact(i);
