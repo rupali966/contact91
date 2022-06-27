@@ -54,7 +54,7 @@ class _ContactScreenState extends State<ContactScreen> {
                       decoration: const BoxDecoration(),
                       child: profileimg(
                           rad: 70,
-                          bgimg: usrdt.contactimg[(i == null) ? 1 : i])),
+                          bgimg: usrdt.contactimg[(i == null) ? 1 : i].toString())),
                 ),
                 S(h: 10),
                 Center(

@@ -29,52 +29,148 @@ class _HomeScreenState extends State<HomeScreen> {
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
-          title: Text("Contact List "),
+          title: const Text("Contact List "),
           centerTitle: true,
         ),
         body: Container(
-          padding: EdgeInsets.all(10),
-          margin: EdgeInsets.all(10),
+          padding: const EdgeInsets.all(10),
+          margin: const EdgeInsets.all(10),
           child: Column(
             children: [
               Expanded(
                 child: ListView.builder(
                   itemCount: usrdt.contactname.length,
                   itemBuilder: (context, i) {
-                    return InkWell(
-                      onTap: () {
-                        Navigator.pushNamed(context, 'contact', arguments: i);
+                    final item = usrdt.contactname[i];
+                    return Dismissible(
+                      key: Key(item),
+                      direction: DismissDirection.endToStart,
+                      resizeDuration: const Duration(milliseconds: 500),
+                      onDismissed: (direction) {
                         setState(() {});
                       },
+                      confirmDismiss: (direction) async {
+                        return await confirmbox(
+                          context,
+                          confirmation_msg:
+                              "Are you sure you wish to Call $item?",
+                          onTap: () {
+                            dial(num: usrdt.contactnumber[i]);
+                            Navigator.of(context).pop(false);
+                          },
+                        );
+                      },
+                      background: Container(
+                          color: Colors.greenAccent,
+                          child: Row(
+                            children: [
+                              const Icon(
+                                Icons.call,
+                                color: Colors.greenAccent,
+                              ),
+                            ],
+                          )),
                       child: Container(
-                        padding: EdgeInsets.all(10),
-                        decoration: BoxDecoration(),
-                        child: viewcall3(
-                          lendinga: InkWell(
-                            child: profileimg(
-                              rad: 35,
-                              bgclr: clrpup,
-                              bgimg: usrdt.contactimg[i],
-                            ),
-                          ),
-                          mainstr: txt(str: usrdt.contactname[i], size: 15),
-                          substr: Padding(
-                            padding: const EdgeInsets.all(4.0),
-                            child: Expanded(
-                              child: Column(
-                                mainAxisAlignment: MainAxisAlignment.start,
-                                crossAxisAlignment: CrossAxisAlignment.stretch,
-                                children: [
-                                  txt2(str: usrdt.contactnumber[i]),
-                                  txt2(
-                                    str: usrdt.contactemail[i],
+                        padding: const EdgeInsets.only(left: 10, right: 30),
+                        child: Dismissible(
+                          confirmDismiss: (direction) async {
+                            return await confirmbox(
+                              context,
+                              confirmation_msg:
+                                  "Do You Really Want To Delete $item?",
+                              onTap: () {
+                                Navigator.of(context).pop(true);
+                              },
+                            );
+                          },
+                          direction: DismissDirection.startToEnd,
+                          resizeDuration: const Duration(milliseconds: 500),
+                          key: Key(item),
+                          onDismissed: (direction) {
+                            setState(() {
+                              usrdt.contactname.removeAt(i);
+                            });
+                            ScaffoldMessenger.of(context).showSnackBar(
+                              SnackBar(
+                                duration: const Duration(milliseconds: 2000),
+                                backgroundColor: Colors.redAccent,
+                                content: Row(
+                                  children: [
+                                    Text('$item dismissed'),
+                                    Expanded(child: S()),
+                                    InkWell(
+                                      highlightColor: Colors.red,
+                                      focusColor: Colors.red,
+                                      child: ElevatedButton(
+                                        onPressed: () {
+                                          setState(() {
+                                            usrdt.contactname.insert(i, item);
+                                          });
+                                          ScaffoldMessenger.of(context)
+                                              .showSnackBar(
+                                            SnackBar(
+                                              duration: const Duration(
+                                                  milliseconds: 1000),
+                                              backgroundColor:
+                                                  Colors.greenAccent,
+                                              content:
+                                                  Text("$item Adding ...."),
+                                            ),
+                                          );
+                                        },
+                                        child: txt(
+                                          color: Colors.redAccent,
+                                          str: "UNDO",
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            );
+                          },
+                          background: Container(color: Colors.red),
+                          child: InkWell(
+                            onTap: () {
+                              Navigator.pushNamed(context, 'contact',
+                                  arguments: i);
+                              setState(() {});
+                            },
+                            child: Container(
+                              padding: const EdgeInsets.all(10),
+                              decoration: const BoxDecoration(),
+                              child: viewcall3(
+                                lendinga: InkWell(
+                                  child: profileimg(
+                                    rad: 35,
+                                    bgclr: clrpup,
+                                    bgimg: usrdt.contactimg[i].toString(),
                                   ),
-                                  // Text(contactadrees[i]),
-                                ],
+                                ),
+                                mainstr:
+                                    txt(str: usrdt.contactname[i], size: 15),
+                                substr: Padding(
+                                  padding: const EdgeInsets.all(4.0),
+                                  child: Expanded(
+                                    child: Column(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.start,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.stretch,
+                                      children: [
+                                        txt2(str: usrdt.contactnumber[i]),
+                                        txt2(
+                                          str: usrdt.contactemail[i],
+                                        ),
+                                        // Text(contactadrees[i]),
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                                // trailing: Icon(Icons.more_vert),
                               ),
                             ),
                           ),
-                          // trailing: Icon(Icons.more_vert),
                         ),
                       ),
                     );
@@ -90,13 +186,15 @@ class _HomeScreenState extends State<HomeScreen> {
                 context: this.context,
                 builder: (context) {
                   return AlertDialog(
-                    insetPadding: EdgeInsets.all(5),
+                    insetPadding: const EdgeInsets.all(5),
                     alignment: Alignment.bottomCenter,
                     title: Padding(
                       padding: const EdgeInsets.all(10),
                       child: Center(
                         child: txt(
-                          color: truefalsevalu.getval()?Colors.amber:Colors.black,
+                          color: truefalsevalu.getval()
+                              ? Colors.amber
+                              : Colors.black,
                           str: 'Add Contact',
                         ),
                       ),
@@ -110,7 +208,6 @@ class _HomeScreenState extends State<HomeScreen> {
                             child: Expanded(
                               child: Column(
                                 children: [
-
                                   InkWell(
                                     onTap: () async {
                                       image = await pickimggalary() as XFile?;
@@ -125,7 +222,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                         : profileimg(
                                             rad: 50, bgimg: image2!.path),
                                   ),
-                                  SizedBox(
+                                  const SizedBox(
                                     height: 30,
                                   ),
                                   txtfild(cntr: ctrname, hintStr: "Name"),
@@ -151,7 +248,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           });
                           Navigator.pop(context);
                         },
-                        child: Text("Ok"),
+                        child: const Text("Ok"),
                       )
                     ],
                   );

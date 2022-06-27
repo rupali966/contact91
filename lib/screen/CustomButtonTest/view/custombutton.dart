@@ -1,8 +1,12 @@
+import 'package:contactthree/main.dart';
 import 'package:contactthree/screen/CustomButtonTest/modal/MenuItm.dart';
+import 'package:contactthree/widget/constant/colors.dart';
 import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:flutter/material.dart';
 
 import '../controller/cntr.cutom.btn.dart';
+
+
 
 Widget drop(int num) {
   return StatefulBuilder(builder: (context, StateSetter setState) {
@@ -10,6 +14,7 @@ Widget drop(int num) {
       width: 40,
       child: DropdownButtonHideUnderline(
         child: DropdownButton2(
+          selectedItemHighlightColor: Colors.deepPurpleAccent,
           customButton: const Icon(
             Icons.more_vert,
             color: Colors.white,

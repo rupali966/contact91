@@ -19,7 +19,6 @@ Widget txtfild({
       ),
       decoration: InputDecoration(
         hintText: hintStr,
-
         border: OutlineInputBorder(
             borderSide: BorderSide(
           color: Colors.blue.shade200,
@@ -32,9 +31,19 @@ Widget txtfild({
 
 Widget profileimg({
   final String bgimg = "",
-  final Color? bgclr ,
+  final Color? bgclr,
   final double? rad,
 }) {
+  // if (bgimg!.isNotEmpty) {
+  //   return CircleAvatar(
+  //     radius: rad,
+  //     backgroundImage: AssetImage(bgimg!),
+  //     //   FileImage(
+  //     //   File(bgimg),
+  //     // ),
+  //     backgroundColor: clrpup,
+  //   );
+  // } else {
   return CircleAvatar(
     radius: rad,
     backgroundImage: FileImage(
@@ -42,6 +51,7 @@ Widget profileimg({
     ),
     backgroundColor: clrpup,
   );
+  // }
 }
 
 Widget txt({
@@ -177,7 +187,6 @@ Widget viewcall3({
   GestureTapCallback? mainTap,
   List<Widget> tralling = const <Widget>[],
   final Widget? lendinga,
-
 }) {
   return Container(
     padding: EdgeInsets.all(10),
@@ -194,11 +203,8 @@ Widget viewcall3({
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-
                 S(h: 5),
-                InkWell(
-                    onTap: mainTap,
-                    child: Container(child: mainstr)),
+                InkWell(onTap: mainTap, child: Container(child: mainstr)),
                 Container(child: substr),
               ],
             ),
@@ -208,5 +214,24 @@ Widget viewcall3({
         ],
       ),
     ),
+  );
+}
+
+Future confirmbox(BuildContext context,
+    {GestureTapCallback? onTap, String confirmation_msg = ""}) {
+  return showDialog(
+    context: context,
+    builder: (BuildContext context) {
+      return AlertDialog(
+        title: const Text("Confirm"),
+        content: Text(confirmation_msg),
+        actions: [
+          TextButton(onPressed: onTap, child: const Text("Yes")),
+          TextButton(
+              onPressed: () => Navigator.of(context).pop(false),
+              child: const Text("No"))
+        ],
+      );
+    },
   );
 }

@@ -23,7 +23,7 @@ class Styles {
       //   buttonColor: isDarkTheme ? Colors.deepPurple: Colors.deepPurple,
       // ),
       floatingActionButtonTheme: FloatingActionButtonThemeData(
-        backgroundColor:  Colors.deepPurple,
+        backgroundColor: Colors.deepPurple,
         // foregroundColor: isDarkTheme ? Colors.amber.shade300 : Colors.white
       ),
       primarySwatch: isDarkTheme ? Colors.amber : Colors.deepPurple,

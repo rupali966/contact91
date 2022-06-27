@@ -45,7 +45,7 @@ class MenuItems_two {
   static onChanged(BuildContext context, MenuItem_two item, int i) {
     switch (item) {
       case MenuItems_two.home:
-        // Do something
+      // Do something
         break;
       case MenuItems_two.settings:
         Navigator.pushNamed(context, 'setting');
