@@ -22,7 +22,7 @@ class MainScreena extends StatefulWidget {
 class _MainScreenaState extends State<MainScreena> {
   @override
   Widget build(BuildContext context) {
-    Timer.periodic(Duration(milliseconds: 1000), (timer) {
+    Timer.periodic(Duration(seconds: 5), (timer) {
       setState(() {});
     });
     return MaterialApp(

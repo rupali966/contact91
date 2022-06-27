@@ -1,6 +1,5 @@
-import 'dart:io';
-
 import 'package:contactthree/data/userinfo.dart';
+import 'package:contactthree/main.dart';
 import 'package:contactthree/screen/home/controller/cntr.home.dart';
 import 'package:contactthree/widget/component/widgets.dart';
 import 'package:contactthree/widget/constant/colors.dart';
@@ -36,7 +35,6 @@ class _HomeScreenState extends State<HomeScreen> {
         body: Container(
           padding: EdgeInsets.all(10),
           margin: EdgeInsets.all(10),
-          color: Colors.white,
           child: Column(
             children: [
               Expanded(
@@ -50,37 +48,30 @@ class _HomeScreenState extends State<HomeScreen> {
                       },
                       child: Container(
                         padding: EdgeInsets.all(10),
-                        decoration: BoxDecoration(
-                          color: Colors.white,
-                        ),
-                        child: ListTile(
-                          leading: InkWell(
-                            child: Container(
-                              height: 70,
-                              width: 70,
-                              child: CircleAvatar(
-                                backgroundImage: FileImage(
-                                  File(usrdt.contactimg[i]),
-                                ),
-                              ),
+                        decoration: BoxDecoration(),
+                        child: viewcall3(
+                          lendinga: InkWell(
+                            child: profileimg(
+                              rad: 35,
+                              bgclr: clrpup,
+                              bgimg: usrdt.contactimg[i],
                             ),
                           ),
-                          title: Text(usrdt.contactname[i]),
-                          subtitle: Padding(
+                          mainstr: txt(str: usrdt.contactname[i], size: 15),
+                          substr: Padding(
                             padding: const EdgeInsets.all(4.0),
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(usrdt.contactnumber[i]),
-                                Text(
-                                  usrdt.contactemail[i],
-                                  style: TextStyle(
-                                    fontSize: 10,
+                            child: Expanded(
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                crossAxisAlignment: CrossAxisAlignment.stretch,
+                                children: [
+                                  txt2(str: usrdt.contactnumber[i]),
+                                  txt2(
+                                    str: usrdt.contactemail[i],
                                   ),
-                                ),
-                                // Text(contactadrees[i]),
-                              ],
+                                  // Text(contactadrees[i]),
+                                ],
+                              ),
                             ),
                           ),
                           // trailing: Icon(Icons.more_vert),
@@ -96,7 +87,7 @@ class _HomeScreenState extends State<HomeScreen> {
         floatingActionButton: FloatingActionButton(
           onPressed: () async {
             showDialog(
-                context: context,
+                context: this.context,
                 builder: (context) {
                   return AlertDialog(
                     insetPadding: EdgeInsets.all(5),
@@ -104,11 +95,10 @@ class _HomeScreenState extends State<HomeScreen> {
                     title: Padding(
                       padding: const EdgeInsets.all(10),
                       child: Center(
-                        child: Text('Add Contact',
-                            style: TextStyle(
-                              fontSize: 16,
-                              color: Colors.black87,
-                            )),
+                        child: txt(
+                          color: truefalsevalu.getval()?Colors.amber:Colors.black,
+                          str: 'Add Contact',
+                        ),
                       ),
                     ),
                     content: StatefulBuilder(
@@ -120,7 +110,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             child: Expanded(
                               child: Column(
                                 children: [
-                                  // showimgprofile(image2,image),
+
                                   InkWell(
                                     onTap: () async {
                                       image = await pickimggalary() as XFile?;
@@ -131,7 +121,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                       }
                                     },
                                     child: image2 == null
-                                        ? profileimg(rad: 50, bgclr: clrblu)
+                                        ? profileimg(rad: 50, bgclr: clrpup)
                                         : profileimg(
                                             rad: 50, bgimg: image2!.path),
                                   ),

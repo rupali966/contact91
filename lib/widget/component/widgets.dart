@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:contactthree/widget/constant/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_phone_direct_caller/flutter_phone_direct_caller.dart';
 
@@ -18,6 +19,7 @@ Widget txtfild({
       ),
       decoration: InputDecoration(
         hintText: hintStr,
+
         border: OutlineInputBorder(
             borderSide: BorderSide(
           color: Colors.blue.shade200,
@@ -30,7 +32,7 @@ Widget txtfild({
 
 Widget profileimg({
   final String bgimg = "",
-  final Color? bgclr,
+  final Color? bgclr ,
   final double? rad,
 }) {
   return CircleAvatar(
@@ -38,7 +40,7 @@ Widget profileimg({
     backgroundImage: FileImage(
       File(bgimg),
     ),
-    backgroundColor: bgclr,
+    backgroundColor: clrpup,
   );
 }
 
@@ -165,5 +167,46 @@ Widget txtbtn({
           fontSize: 12,
         )),
     onPressed: clk,
+  );
+}
+
+Widget viewcall3({
+  final Widget? mainstr,
+  final Widget? substr,
+  final Color? mainclr,
+  GestureTapCallback? mainTap,
+  List<Widget> tralling = const <Widget>[],
+  final Widget? lendinga,
+
+}) {
+  return Container(
+    padding: EdgeInsets.all(10),
+    child: Expanded(
+      child: Row(
+        children: [
+          Container(
+            child: lendinga,
+          ),
+          S(w: 7),
+          Expanded(
+            flex: 2,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+
+                S(h: 5),
+                InkWell(
+                    onTap: mainTap,
+                    child: Container(child: mainstr)),
+                Container(child: substr),
+              ],
+            ),
+          ),
+          Expanded(child: S()),
+          Row(children: tralling),
+        ],
+      ),
+    ),
   );
 }

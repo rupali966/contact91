@@ -1,3 +1,4 @@
+import 'package:contactthree/main.dart';
 import 'package:contactthree/screen/CustomButtonTest/modal/MenuItm.dart';
 import 'package:contactthree/screen/contact/controller/cntr.contact.dart';
 import 'package:contactthree/screen/home/controller/cntr.home.dart';
@@ -68,8 +69,13 @@ class MenuItems_two {
                 children: [
                   StatefulBuilder(builder: (context, StateSetter setState) {
                     return AlertDialog(
-                      title: const Text(
-                        'Edit Contact',
+                      title: Center(
+                        child: txt(
+                          color: truefalsevalu.getval()
+                              ? Colors.amber
+                              : Colors.black,
+                          str: 'Edit Contact',
+                        ),
                       ),
                       content: ListBody(
                         children: [
@@ -84,8 +90,7 @@ class MenuItems_two {
                             },
                             child: image2 == null
                                 ? profileimg(rad: 50, bgclr: clrblu)
-                                : profileimg(
-                                rad: 50, bgimg: image2!.path),
+                                : profileimg(rad: 50, bgimg: image2!.path),
                           ),
                           txtfild(hintStr: "Name", cntr: name),
                           txtfild(hintStr: "Address", cntr: adr),

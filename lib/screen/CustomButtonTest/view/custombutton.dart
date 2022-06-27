@@ -8,7 +8,6 @@ Widget drop(int num) {
   return StatefulBuilder(builder: (context, StateSetter setState) {
     return Container(
       width: 40,
-      color: Colors.blue,
       child: DropdownButtonHideUnderline(
         child: DropdownButton2(
           customButton: const Icon(
