@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:contacts_service/contacts_service.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_phone_direct_caller/flutter_phone_direct_caller.dart';
 
@@ -47,6 +48,7 @@ Widget txt({
   final String? hintStr,
   final Color? color,
   final TextDecoration? decoration,
+  final double? size,
 }) {
   return Padding(
     padding: const EdgeInsets.all(5),
@@ -54,7 +56,7 @@ Widget txt({
       str!,
       style: TextStyle(
           color: color,
-          fontSize: 12,
+          fontSize: size,
           decoration: decoration,
           fontWeight: FontWeight.w400),
     ),
@@ -136,8 +138,10 @@ Widget viewcall2({
   final Widget? trailing,
   final Color? mainclr,
   GestureTapCallback? mainTap,
+  final Widget? leading,
 }) {
   return ListTile(
+    leading: leading,
     title: Column(
       mainAxisAlignment: MainAxisAlignment.start,
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -156,10 +160,12 @@ Widget txtbtn({
   final Color? clr,
 }) {
   return TextButton(
-    child: Text(str!,style: TextStyle(
-      color: clr,
-      fontSize: 12,
-    )),
+    child: Text(str!,
+        style: TextStyle(
+          color: clr,
+          fontSize: 12,
+        )),
     onPressed: clk,
   );
 }
+

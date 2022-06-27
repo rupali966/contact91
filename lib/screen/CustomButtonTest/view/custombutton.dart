@@ -1,20 +1,14 @@
-import 'package:contactthree/screen/CustomButtonTest/controller/cntr.cutom.btn.dart';
+
 import 'package:contactthree/screen/CustomButtonTest/modal/MenuItm.dart';
 import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:flutter/material.dart';
 
-class CustomButtonTest extends StatefulWidget {
-   CustomButtonTest(this.num, {Key? key}) : super(key: key);
-  int num;
-  @override
-  State<CustomButtonTest> createState() => _CustomButtonTestState();
-}
+import '../controller/cntr.cutom.btn.dart';
 
-class _CustomButtonTestState extends State<CustomButtonTest> {
-  @override
-  Widget build(BuildContext context) {
-    return Center(
-      child: Container(
+Widget drop( int num){
+  return StatefulBuilder(
+    builder: (context, StateSetter setState) {
+      return Container(
         width: 40,
         color: Colors.blue,
         child: DropdownButtonHideUnderline(
@@ -26,7 +20,7 @@ class _CustomButtonTestState extends State<CustomButtonTest> {
             customItemsIndexes: const [3],
             items: [
               ...MenuItems_two.firstItems.map(
-                (item) => DropdownMenuItem(
+                    (item) => DropdownMenuItem(
                   value: item,
                   child: MenuItems_two.buildItem(item),
                 ),
@@ -34,7 +28,8 @@ class _CustomButtonTestState extends State<CustomButtonTest> {
             ],
             onChanged: (value) {
 
-              MenuItems_two.onChanged(context, value as MenuItem_two,widget.num);
+              MenuItems_two.onChanged(context, value as MenuItem_two,num);
+              setState((){});
             },
             dropdownWidth: 160,
             dropdownDecoration: BoxDecoration(
@@ -43,7 +38,7 @@ class _CustomButtonTestState extends State<CustomButtonTest> {
             ),
           ),
         ),
-      ),
-    );
-  }
+      );
+    }
+  );
 }

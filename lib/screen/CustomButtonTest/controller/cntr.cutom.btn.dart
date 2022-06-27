@@ -2,6 +2,7 @@ import 'package:contactthree/screen/CustomButtonTest/modal/MenuItm.dart';
 import 'package:contactthree/screen/contact/controller/cntr.contact.dart';
 import 'package:contactthree/screen/contact/view/contact.screen.dart';
 import 'package:contactthree/screen/home/controller/cntr.home.dart';
+import 'package:contactthree/screen/home/view/home.screen.dart';
 import 'package:contactthree/widget/component/widgets.dart';
 import 'package:contactthree/widget/constant/colors.dart';
 import 'package:flutter/material.dart';
@@ -97,11 +98,11 @@ class MenuItems_two {
                       actions: [
                         txtbtn(
                             clk: () {
-                              dt.contactname[i] = name.text.toString();
-                              dt.contactnumber[i] = num.text.toString();
-                              dt.contactemail[i] = mail.text.toString();
-                              dt.contactadrees[i] = adr.text.toString();
-                              dt.contactimg[i] = image2!.path;
+                              usrdt.contactname[i] = name.text.toString();
+                              usrdt.contactnumber[i] = num.text.toString();
+                              usrdt.contactemail[i] = mail.text.toString();
+                              usrdt.contactadrees[i] = adr.text.toString();
+                              usrdt.contactimg[i] = image2!.path;
                               setState(() {});
                               Navigator.of(context).pop();
                             },
