@@ -1,4 +1,4 @@
-# contact app
+# Contact app
 
 A new Flutter project.
 
@@ -6,14 +6,33 @@ A new Flutter project.
 
 This project is a starting point for a Flutter application.
 
-A few resources to get you started if this is your first Flutter project:
+## What you’ll learn in part 1
+
+How to write a Flutter app that looks natural on iOS, Android, desktop (Windows, for example), and
+the web
+
+1. Basic structure of a Flutter app
+
+2. Finding and using packages to extend functionality
+
+3. Using ListView.builder creates a scrollable, linear array of widgets.
+
+4. How to implement flutter_share for providing a simple way to share a message, link or local
+   files.
+
+5. url_launcher for launching a URL. Supports web, phone, SMS, and email schemes.
+
+How to create an infinite, lazily loaded list
 
 <img src="asset/demo/img.jpg" width="300"/> <img src="asset/demo/img2.jpg" width="300"/>
-<img src="asset/demo/img3.jpg" width="300"/> 
+<img src="asset/demo/img3.jpg" width="300"/>
+
+## Night Mode
+
 <img src="asset/demo/img5.jpg" width="300"/> <img src="asset/demo/img4.jpg" width="300"/>
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+- [flutter_share 2.0.0 ](https://pub.dev/packages/flutter_share)
+- [url_launcher 6.1.4](https://pub.dev/packages/url_launcher)
 
 For help getting started with Flutter development, view the
 [online documentation](https://docs.flutter.dev/), which offers tutorials, samples, guidance on
