@@ -27,6 +27,14 @@ How to create an infinite, lazily loaded list
 <img src="asset/demo/img.jpg" width="300"/> <img src="asset/demo/img2.jpg" width="300"/>
 <img src="asset/demo/img3.jpg" width="300"/>
 
+To Impliment Dark Mode You Have To Use Themedata Class :
+
+### What is ThemeData flutter?
+
+=> ThemeData class Null safety. Defines the configuration of the overall visual Theme for a
+MaterialApp or a widget subtree within the app. The MaterialApp theme property can be used to
+configure the appearance of the entire app.
+
 ## Night Mode
 
 <img src="asset/demo/img5.jpg" width="300"/> <img src="asset/demo/img4.jpg" width="300"/>
