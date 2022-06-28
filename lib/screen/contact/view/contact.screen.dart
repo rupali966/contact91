@@ -17,13 +17,6 @@ class _ContactScreenState extends State<ContactScreen> {
   Widget build(BuildContext context) {
     int? i = 1;
     i = ModalRoute.of(context)!.settings.arguments as int?;
-    // List<Contact> conta=[];
-    // Future<void> contactkaro () async {
-    //   List<Contact> contacts = await ContactsService.getContacts();
-    //   conta = contacts;
-    // }
-
-    // CustomButtonTest c = CustomButtonTest(i);
 
     return SafeArea(
       child: Scaffold(
@@ -54,7 +47,8 @@ class _ContactScreenState extends State<ContactScreen> {
                       decoration: const BoxDecoration(),
                       child: profileimg(
                           rad: 70,
-                          bgimg: usrdt.contactimg[(i == null) ? 1 : i].toString())),
+                          bgimg: usrdt.contactimg[(i == null) ? 1 : i]
+                              .toString())),
                 ),
                 S(h: 10),
                 Center(

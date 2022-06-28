@@ -23,6 +23,7 @@ class _HomeScreenState extends State<HomeScreen> {
   final ImagePicker picker = ImagePicker();
   XFile? image;
   XFile? image2;
+  String number = "Acceding";
 
   @override
   Widget build(BuildContext context) {
@@ -31,6 +32,14 @@ class _HomeScreenState extends State<HomeScreen> {
         appBar: AppBar(
           title: const Text("Contact List "),
           centerTitle: true,
+          actions: [
+            IconButton(
+              onPressed: () {},
+              icon: Icon(
+                Icons.more_vert,
+              ),
+            ),
+          ],
         ),
         body: Container(
           padding: const EdgeInsets.all(10),

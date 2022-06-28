@@ -1,3 +1,5 @@
+import 'package:shared_preferences/shared_preferences.dart';
+
 class data {
   List contactnumber = [
     "942751XXXX",
@@ -10,7 +12,7 @@ class data {
     "942866XXXX",
     "942866XXXX",
   ];
-  List contactname = [
+  List contactname = <String>[
     "Sundar",
     "Elon",
     "Steve",
@@ -54,6 +56,13 @@ class data {
     "asset/pic2.png",
     "asset/pic3.png",
   ];
+
+  void setname(int? num, String no) async {
+    // Obtain shared preferences.
+    this.contactname.insert(num!, no);
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setStringList('name', contactname as List<String>);
+  }
 
   void getdata(
       {String? contactnumber,
