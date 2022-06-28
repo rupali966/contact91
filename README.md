@@ -6,6 +6,25 @@ A new Flutter project.
 
 This project is a starting point for a Flutter application.
 
+## Requirement
+
+```yaml
+dependencies:
+  # The following adds the Cupertino Icons font to your application.
+  # Use with the CupertinoIcons class for iOS style icons.
+  cupertino_icons: 
+  image_picker: 
+  flutter_phone_direct_caller: 
+  dropdown_button2: 
+  flutter_share: 
+  file_picker: 
+  share_plus:  # You can use alternative of Share
+  flutter_contacts: 
+  contacts_service: 
+  shared_preferences: 
+
+```
+
 ## What you’ll learn in part 1
 
 How to write a Flutter app that looks natural on iOS, Android, desktop (Windows, for example), and
@@ -39,24 +58,7 @@ configure the appearance of the entire app.
 
 <img src="asset/demo/img5.jpg" width="300"/> <img src="asset/demo/img4.jpg" width="300"/>
 
-## Requirement
 
-```yaml
-dependencies:
-  # The following adds the Cupertino Icons font to your application.
-  # Use with the CupertinoIcons class for iOS style icons.
-  cupertino_icons: 
-  image_picker: 
-  flutter_phone_direct_caller: 
-  dropdown_button2: 
-  flutter_share: 
-  file_picker: 
-  share_plus:  # You can use alternative of Share
-  flutter_contacts: 
-  contacts_service: 
-  shared_preferences: 
-
-```
 
 For help getting started with Flutter development, view the
 
