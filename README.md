@@ -64,5 +64,5 @@ For help getting started with Flutter development, view the
 
 - [flutter_share 2.0.0 ](https://pub.dev/packages/flutter_share)
 - [url_launcher 6.1.4](https://pub.dev/packages/url_launcher)
-  [online documentation](https://docs.flutter.dev/), which offers tutorials, samples, guidance on
-  mobile development, and a full API reference.
+- [online documentation for flutter](https://docs.flutter.dev/), which offers tutorials, samples,
+  guidance on mobile development, and a full API reference.
