@@ -39,9 +39,30 @@ configure the appearance of the entire app.
 
 <img src="asset/demo/img5.jpg" width="300"/> <img src="asset/demo/img4.jpg" width="300"/>
 
-- [flutter_share 2.0.0 ](https://pub.dev/packages/flutter_share)
-- [url_launcher 6.1.4](https://pub.dev/packages/url_launcher)
+```yaml
+dependencies:
+  flutter:
+    sdk: flutter
+
+
+  # The following adds the Cupertino Icons font to your application.
+  # Use with the CupertinoIcons class for iOS style icons.
+  cupertino_icons: ^1.0.2
+  image_picker: ^0.8.5+3
+  flutter_phone_direct_caller: ^2.1.1
+  dropdown_button2: ^1.6.2
+  flutter_share: ^2.0.0
+  file_picker: ^4.6.1
+  share_plus: ^4.0.9
+  flutter_contacts: ^1.1.5
+  contacts_service: ^0.6.3
+  shared_preferences: ^2.0.15
+
+```
 
 For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials, samples, guidance on
-mobile development, and a full API reference.
+
+- [flutter_share 2.0.0 ](https://pub.dev/packages/flutter_share)
+- [url_launcher 6.1.4](https://pub.dev/packages/url_launcher)
+  [online documentation](https://docs.flutter.dev/), which offers tutorials, samples, guidance on
+  mobile development, and a full API reference.
