@@ -3,10 +3,12 @@ import 'dart:io';
 import 'package:contactthree/widget/constant/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_phone_direct_caller/flutter_phone_direct_caller.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 Widget txtfild({
   final TextEditingController? cntr,
   final String? hintStr,
+  int? height,
 }) {
   return Padding(
     padding: const EdgeInsets.all(5),
@@ -17,6 +19,7 @@ Widget txtfild({
       style: TextStyle(
         fontSize: 10,
       ),
+      maxLines: height,
       decoration: InputDecoration(
         hintText: hintStr,
         border: OutlineInputBorder(
@@ -107,6 +110,37 @@ void dial({String? num}) {
   FlutterPhoneDirectCaller.callNumber(
     num!,
   );
+}
+
+Future<void> msg({String? num}) async {
+  final Uri uri = Uri.parse('sms:$num');
+  await launchUrl(uri);
+}
+
+Future<void> video({String? num}) async {
+  final Uri emailLaunchUri = Uri(
+      scheme: 'https:',
+      path: 'wa.me',
+      query:
+          encodeQueryParameters(<String, String>{'subject': '919427516924'}));
+  // final Uri uri = Uri.parse('/919427516924?text=SAMPLE TEXT');
+  await launchUrl(emailLaunchUri);
+}
+
+Future<void> emailto({String? email, String? subject}) async {
+  final Uri emailLaunchUri = Uri(
+    scheme: 'mailto',
+    path: '$email',
+    query: encodeQueryParameters({'subject': '$subject'}),
+  );
+  await launchUrl(emailLaunchUri);
+}
+
+String? encodeQueryParameters(Map<String, String> params) {
+  return params.entries
+      .map((e) =>
+          '${Uri.encodeComponent(e.key)}=${Uri.encodeComponent(e.value)}')
+      .join('&');
 }
 
 Widget viewcall({

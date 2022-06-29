@@ -43,6 +43,8 @@ dependencies:
   flutter_contacts: ^1.1.5
   contacts_service: ^0.6.3
   shared_preferences: ^2.0.15
+  url_launcher: ^6.1.4
+  flutter_email_sender: ^5.1.0
 
 dev_dependencies:
   flutter_test:
@@ -69,7 +71,7 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
     - asset/
-    - asset/demo
+  #    - asset/demo
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

@@ -34,7 +34,9 @@ class _HomeScreenState extends State<HomeScreen> {
           centerTitle: true,
           actions: [
             IconButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.pushNamed(context, 'demo');
+              },
               icon: Icon(
                 Icons.more_vert,
               ),

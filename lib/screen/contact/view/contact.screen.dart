@@ -58,6 +58,89 @@ class _ContactScreenState extends State<ContactScreen> {
                     txt(str: usrdt.contactname[(i == null) ? 1 : i]),
                   ],
                 )),
+                S(h: 20),
+                Divider(),
+                Container(
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          IconButton(
+                            onPressed: () {
+                              dial(
+                                num: usrdt.contactnumber[(i == null) ? 1 : i],
+                              );
+                            },
+                            icon:
+                                Icon(Icons.call, color: Colors.green, size: 30),
+                          ),
+                          txt(str: "Call", size: 10, color: Colors.green),
+                        ],
+                      ),
+                      Column(
+                        children: [
+                          IconButton(
+                            onPressed: () {
+                              msg(
+                                num: usrdt.contactnumber[(i == null) ? 1 : i],
+                              );
+                            },
+                            icon: Icon(
+                              Icons.textsms,
+                              size: 30,
+                              color: Colors.orangeAccent,
+                            ),
+                          ),
+                          txt(
+                              str: "Text",
+                              size: 10,
+                              color: Colors.orangeAccent),
+                        ],
+                      ),
+                      Column(
+                        children: [
+                          IconButton(
+                            onPressed: () {
+                              SnackBar snackbar = SnackBar(
+                                content: Text("Under Constrution .."),
+                                backgroundColor: Colors.redAccent,
+                              );
+                              ScaffoldMessenger.of(context)
+                                  .showSnackBar(snackbar);
+                              // video(num: usrdt.contactnumber[(i == null) ? 1 : i],);
+                            },
+                            icon: Icon(
+                              Icons.video_camera_front,
+                              size: 30,
+                              color: Colors.blue,
+                            ),
+                          ),
+                          txt(str: "Video", size: 10, color: Colors.blue),
+                        ],
+                      ),
+                      Column(
+                        children: [
+                          IconButton(
+                            onPressed: () {
+                              Navigator.pushNamed(context, 'email',
+                                  arguments:
+                                      usrdt.contactemail[(i == null) ? 1 : i]);
+                            },
+                            icon: Icon(
+                              Icons.mail,
+                              size: 30,
+                              color: Colors.redAccent,
+                            ),
+                          ),
+                          txt(str: "Email", size: 10, color: Colors.redAccent),
+                        ],
+                      )
+                    ],
+                  ),
+                ),
+                Divider(),
                 Align(
                   alignment: Alignment.center,
                   child: SingleChildScrollView(
@@ -124,7 +207,14 @@ class _ContactScreenState extends State<ContactScreen> {
                                 size: 13,
                               ),
                               lendinga: IconButton(
-                                onPressed: () {},
+                                onPressed: () {
+                                  emailto(
+                                    email:
+                                        usrdt.contactemail[(i == null) ? 1 : i],
+                                    subject: "Scaibu",
+                                  );
+                                  // Navigator.pushNamed(context, 'email',arguments: usrdt.contactemail[(i == null) ? 1 : i]);
+                                },
                                 icon: const Icon(
                                   Icons.alternate_email_rounded,
                                   color: Colors.redAccent,
